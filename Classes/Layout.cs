@@ -45,11 +45,11 @@ namespace digibank.Classes
             Console.Clear();
 
             Console.WriteLine("                                                        ");
-            Console.WriteLine("                 Digite o nome:                     ");
+            Console.WriteLine("                 Digite o nome:                         ");
             string nome = Console.ReadLine();
-            Console.WriteLine("                 Digite o CPF:                      ");
+            Console.WriteLine("                 Digite o CPF:                          ");
             string cpf = Console.ReadLine();
-            Console.WriteLine("                 Digite a senha:                    ");
+            Console.WriteLine("                 Digite a senha:                        ");
             string senha = Console.ReadLine();
             Console.WriteLine("                 ============================           ");
 
