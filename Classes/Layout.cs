@@ -40,7 +40,7 @@ namespace digibank.Classes
             
         }
 
-        public static void telaCriarConta()
+        private static void telaCriarConta()
         {
             Console.Clear();
 
@@ -58,7 +58,7 @@ namespace digibank.Classes
             Console.WriteLine(senha);
         }
 
-        public static void telaLogin()
+        private static void telaLogin()
         {
             Console.Clear();
 
