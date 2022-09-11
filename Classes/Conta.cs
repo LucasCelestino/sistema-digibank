@@ -6,18 +6,18 @@ using digibank.Contratos;
 
 namespace digibank.Classes
 {
-    public class Conta : Banco, ContaInterface
+    public abstract class Conta : Banco, ContaInterface
     {
         public Conta()
         {
-            this.numeroConta = "0001";
-            this.numeroAgencia = "";
+            this.numeroConta = "001";
+            this.numeroAgencia = "123";
             Conta.numeroContaSequencial++;
         }
 
         public double saldo {get; protected set;}
         public string numeroAgencia {get; private set;}
-        public string numeroConta {get; private set;}
+        public string numeroConta {get; protected set;}
 
         public static int numeroContaSequencial {get; private set;}
         public void deposita(double valor)
@@ -44,7 +44,7 @@ namespace digibank.Classes
         }
         public string getNumeroAgencia()
         {
-
+            return this.numeroAgencia;
         }
         public string getNumeroConta()
         {

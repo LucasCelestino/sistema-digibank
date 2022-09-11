@@ -7,6 +7,7 @@ namespace digibank.Classes
 {
     public class Layout
     {
+        private static List<Pessoa> pessoas = new List<Pessoa>();
         private static int opcao = 0;
         public static void telaPrincipal()
         {
@@ -53,9 +54,20 @@ namespace digibank.Classes
             string senha = Console.ReadLine();
             Console.WriteLine("                 ============================           ");
 
-            Console.WriteLine(nome);
-            Console.WriteLine(cpf);
-            Console.WriteLine(senha);
+            ContaCorrente contaCorrente = new ContaCorrente();
+
+            Pessoa pessoa = new Pessoa();
+
+            pessoa.setNome(nome);
+            pessoa.setCPF(cpf);
+            pessoa.setSenha(senha);
+
+            pessoas.Add(pessoa);
+            
+            Console.Clear();
+
+            Console.WriteLine("                 Conta cadastrada com sucesso!:                        ");
+            Console.WriteLine("                 ==============================                        ");
         }
 
         private static void telaLogin()
