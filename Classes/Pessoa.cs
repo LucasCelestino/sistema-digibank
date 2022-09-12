@@ -11,7 +11,7 @@ namespace digibank.Classes
         public string nome {get; private set;}
         public string cpf {get; private set;}
         public string senha {get; private set;}
-        public ContaInterface contaInterface {get; set;}
+        public Conta conta {get; set;}
 
         public void setNome(string nome)
         {

@@ -10,8 +10,7 @@ namespace digibank.Classes
     {
         public Conta()
         {
-            this.numeroConta = "001";
-            this.numeroAgencia = "123";
+            this.numeroAgencia = "001";
             Conta.numeroContaSequencial++;
         }
 
