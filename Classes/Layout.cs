@@ -103,8 +103,6 @@ namespace digibank.Classes
 
         private static void telaContaLogada(Pessoa pessoa)
         {
-            Console.Clear();
-
             Layout.telaBoasVindas(pessoa);
 
             Console.WriteLine("                 Digite a opção desejada:                        ");
@@ -125,19 +123,19 @@ namespace digibank.Classes
             switch (opcao)
             {
                 case 1:
-                    
+                    Layout.telaRealizarDeposito(pessoa);
                     break;
                 case 2:
-                    
+                    Layout.telaRealizarSaque(pessoa);
                     break;
                 case 3:
-                    
+                    Layout.telaMostrarSaldo(pessoa);
                     break;
                 case 4:
-                    
+                    Layout.telaMostrarExtrato(pessoa);
                     break;
                 case 5:
-                    
+                    Layout.telaPrincipal();
                     break;
                 default:
                     Console.WriteLine("Opção não disponível");
@@ -145,5 +143,59 @@ namespace digibank.Classes
             }
         }
 
+        public static void telaMostrarSaldo(Pessoa pessoa)
+        {
+            Console.WriteLine("                                                                         ");
+            Console.WriteLine($"                 Saldo atual:  R${pessoa.conta.consultaSaldo()}           ");
+            Console.WriteLine("                 ==============================                          ");
+
+            Layout.telaContaLogada(pessoa);
+        }
+
+        public static void telaRealizarDeposito(Pessoa pessoa)
+        {
+            Console.WriteLine("                                                                       ");
+            Console.WriteLine("                Digite o valor que deseja depositar:                  ");
+            double valor = double.Parse(Console.ReadLine());
+            
+            pessoa.conta.deposita(valor);
+
+            Console.WriteLine("                                                                       ");
+            Console.WriteLine($"                O valor de R${valor} foi depositado com sucesso!:     ");
+            Console.WriteLine("                 ==============================                        ");
+
+            Thread.Sleep(1800);
+
+            Console.Clear();
+
+            Layout.telaContaLogada(pessoa);
+        }
+
+        public static void telaRealizarSaque(Pessoa pessoa)
+        {
+            Console.WriteLine("                                                                       ");
+            Console.WriteLine("                Digite o valor que deseja sacar:                  ");
+            double valor = double.Parse(Console.ReadLine());
+
+            if(!pessoa.conta.saca(valor))
+            {
+                Console.Write("O valor de saque é maior que o dinheiro em conta.");
+                Layout.telaRealizarSaque(pessoa);
+            }
+            
+            Console.WriteLine($"                O valor de R${valor} foi sacado com sucesso!:     ");
+            Console.WriteLine("                 ==============================                        ");
+
+            Thread.Sleep(1800);
+
+            Console.Clear();
+
+            Layout.telaContaLogada(pessoa);
+        }
+
+        public static void telaMostrarExtrato(Pessoa pessoa)
+        {
+            
+        }
     }
 }
